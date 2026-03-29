@@ -1,4 +1,7 @@
 # SmartHome Guardian – System Scope Definition
+# Context Diagram
+
+![SmartGuardian Context Diagram](image/context-diagram.png)
 
 ## 1. Overview
 
