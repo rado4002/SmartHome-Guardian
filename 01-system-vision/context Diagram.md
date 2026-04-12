@@ -3,6 +3,35 @@
 
 ![SmartGuardian Context Diagram](image/context-diagram.png)
 
+```mermaid
+flowchart LR
+  HO[Home Owner]
+  Admin[Administrator]
+  Tech[Technician]
+  IoT[Simulated IoT Devices]
+
+  subgraph SHG[SmartHome Guardian SaaS Platform]
+    UI[Web UI]
+    API[Application Services]
+    Alert[Alert Management]
+    Pred[Battery Prediction Interface]
+    Data[(Status and Audit Data Store)]
+  end
+
+  HO --> UI
+  Admin --> UI
+  Tech --> UI
+  IoT --> API
+
+  UI --> API
+  API --> Alert
+  API --> Pred
+  API --> Data
+  Alert --> Data
+```
+
+The Mermaid context diagram above is provided for GitHub-native rendering; the PNG remains the primary visual artifact.
+
 ## 1. Overview
 
 The system scope defines the boundaries of the SmartHome Guardian platform — what the system will do, what it will not do, and the limits within which it operates.
