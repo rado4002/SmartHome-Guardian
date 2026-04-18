@@ -3,28 +3,32 @@
 The diagram below refines actor responsibilities and aligns include and extend relationships with UML intent.
 
 ```mermaid
-usecaseDiagram
+flowchart TB
 
-actor "Home Owner" as HO
-actor "Technician" as Tech
-actor "Administrator" as Admin
-actor "Simulated IoT Device" as IoT
+%% Actors
+HO["Home Owner"]
+Tech["Technician"]
+Admin["Administrator"]
+IoT["Simulated IoT Device"]
 
-rectangle "SmartHome Guardian SaaS Platform" {
-	usecase "Authenticate User" as Auth
-	usecase "Authenticate Device" as AuthDev
-	usecase "Register Device" as RegDev
-	usecase "View Device Status" as ViewStatus
-	usecase "Control Smart Lock" as ControlLock
-	usecase "Receive Alert" as ReceiveAlert
-	usecase "Receive Security Alert" as SecAlert
-	usecase "Receive Predictive Battery Alert" as PredAlert
-	usecase "Request Technician Support" as ReqTech
-	usecase "Update Device Battery Status" as UpdateBatt
-	usecase "Manage Users" as ManageUsers
-	usecase "View System Logs" as ViewLogs
-	usecase "Send Device Status Data" as SendData
-}
+%% System Boundary
+subgraph System["SmartHome Guardian SaaS Platform"]
+
+Auth["Authenticate User"]
+AuthDev["Authenticate Device"]
+RegDev["Register Device"]
+ViewStatus["View Device Status"]
+ControlLock["Control Smart Lock"]
+ReceiveAlert["Receive Alert"]
+SecAlert["Receive Security Alert"]
+PredAlert["Receive Predictive Battery Alert"]
+ReqTech["Request Technician Support"]
+UpdateBatt["Update Device Battery Status"]
+ManageUsers["Manage Users"]
+ViewLogs["View System Logs"]
+SendData["Send Device Status Data"]
+
+end
 
 %% Direct Associations
 HO --> RegDev
@@ -38,25 +42,26 @@ Admin --> ManageUsers
 Admin --> ViewLogs
 IoT --> SendData
 
-%% Mandatory Includes (authentication required)
-RegDev ..> Auth : <<include>>
-ViewStatus ..> Auth : <<include>>
-ControlLock ..> Auth : <<include>>
-ReqTech ..> Auth : <<include>>
-UpdateBatt ..> Auth : <<include>>
-ManageUsers ..> Auth : <<include>>
-ViewLogs ..> Auth : <<include>>
-SendData ..> AuthDev : <<include>>
+%% Includes (modeled as dependencies)
+RegDev -. include .-> Auth
+ViewStatus -. include .-> Auth
+ControlLock -. include .-> Auth
+ReqTech -. include .-> Auth
+UpdateBatt -. include .-> Auth
+ManageUsers -. include .-> Auth
+ViewLogs -. include .-> Auth
+SendData -. include .-> AuthDev
 
-%% Conditional Extends (optional behavior)
-SecAlert ..> ViewStatus : <<extend>>
-PredAlert ..> ViewStatus : <<extend>>
-ReqTech ..> PredAlert : <<extend>>
-ControlLock ..> ViewStatus : <<extend>>
+%% Extends (optional behavior)
+SecAlert -. extend .-> ViewStatus
+PredAlert -. extend .-> ViewStatus
+ReqTech -. extend .-> PredAlert
+ControlLock -. extend .-> ViewStatus
 
-%% Use Case Generalization
-ReceiveAlert <|-- SecAlert
-ReceiveAlert <|-- PredAlert
+%% Generalization
+SecAlert --> ReceiveAlert
+PredAlert --> ReceiveAlert
+
 ```
 
 ## Modeling Notes
