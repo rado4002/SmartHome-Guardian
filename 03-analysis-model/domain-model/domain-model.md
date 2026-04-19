@@ -1,15 +1,104 @@
 # Domain Model
 
-Capture conceptual classes and relationships for SmartGuardian.
+classDiagram
+```mermaid
+%% =======================
+%% USERS
+%% =======================
+class User {
+  userId
+  name
+  role
+}
 
-Initial concepts:
+class HomeOwner
+class Administrator
+class Technician
 
-- User
-- Device
-- Sensor
-- Camera
-- Alert
-- Notification
-- Gateway
+User <|-- HomeOwner
+User <|-- Administrator
+User <|-- Technician
 
-Add cardinalities and key constraints as the model matures.
+%% =======================
+%% DEVICES
+%% =======================
+class Device {
+  deviceId
+  status
+  lastSeen
+}
+
+class SmartLock {
+  lockState
+}
+
+class Sensor {
+  sensorType
+}
+
+class SmartPlug {
+  powerUsage
+}
+
+Device <|-- SmartLock
+Device <|-- Sensor
+Device <|-- SmartPlug
+
+%% =======================
+%% BATTERY
+%% =======================
+class Battery {
+  level
+  healthStatus
+}
+
+Device "1" *-- "1" Battery : has
+
+%% =======================
+%% ALERTS
+%% =======================
+class Alert {
+  alertId
+  timestamp
+  severity
+}
+
+class PredictiveAlert {
+  remainingTime
+  confidence
+  explanation
+}
+
+class SecurityAlert
+
+Alert <|-- PredictiveAlert
+Alert <|-- SecurityAlert
+
+Device "1" --> "*" Alert : generates
+
+%% =======================
+%% SECURITY EVENTS
+%% =======================
+class SecurityEvent {
+  eventId
+  timestamp
+}
+
+class AccessAttempt {
+  success
+}
+
+SecurityEvent <|-- AccessAttempt
+
+Device "1" --> "*" SecurityEvent : detects
+
+%% =======================
+%% RELATIONSHIPS
+%% =======================
+HomeOwner "1" --> "*" Device : owns
+Technician "1" --> "*" Device : maintains
+Administrator "1" --> "*" Device : manages
+
+HomeOwner "1" --> "*" Alert : receives
+
+```
