@@ -1,70 +1,55 @@
-# SmartGuardian — System Engineering Repository
+# SmartGuardian — Requirements and Modeling Repository
 
-SmartGuardian is organized as a reusable, phase-driven engineering workflow for smart home monitoring and security system design.
+SmartGuardian is a software engineering course project for requirements analysis, system modeling, architecture documentation, and validation planning. The repository is intentionally documentation-focused; it does not contain application source code.
 
-## Project Flow (Main Roadmap)
+## Project Summary
 
-```
-System Vision
-→ Requirements Engineering
-→ Analysis Modeling
-→ System Architecture
-→ Detailed Design
-→ Prototyping & Experiments
-→ Validation & Testing
-→ Presentation & Final Report
-```
+SmartGuardian is a smart home monitoring and security platform concept for infrastructure-constrained contexts where power instability, intermittent connectivity, and safety risks are common. The system focuses on simulated IoT devices, centralized monitoring, role-based access, security alerts, and explainable predictive battery warnings.
 
-## Phase-by-Phase Execution
+Start with [PROJECT-OVERVIEW.md](PROJECT-OVERVIEW.md) for the short system summary.
 
-| Phase | Goal | Main Artifacts |
-|---|---|---|
-| `01-system-vision` | Define why the system exists | Problem statement, stakeholders, scope, goals |
-| `02-requirements-engineering` | Define what the system must do | Functional/non-functional requirements, use cases, validation review |
-| `03-analysis-model` | Model domain behavior | Domain model, SSDs, operation contracts |
-| `04-system-architecture` | Define component collaboration | Architectural drivers, subsystem decomposition, architecture views, technology decisions |
-| `05-detailed-design` | Refine software design | Class diagrams, interaction diagrams, state machines, patterns |
-| `06-prototyping-and-experiments` | Validate feasibility | IoT simulation, API tests, alert algorithm tests, performance notes |
-| `07-validation-and-testing` | Prove requirement satisfaction | Traceability matrix, system test scenarios, risk analysis |
-| `08-presentation-and-report` | Communicate final maturity | Final architecture summary, demo scenarios, slides |
+## Main Artifact Map
 
-## Repository Structure
+| Folder | Purpose | Key artifacts |
+| --- | --- | --- |
+| `01-vision-and-scope` | Explains the problem, stakeholders, goals, and system boundary | Problem statement, stakeholders, business goals, context diagram |
+| `02-requirements` | Defines and validates what the system must satisfy | Functional requirements, non-functional requirements, validation notes, traceability matrix |
+| `03-use-case-model` | Models user goals and actor-system interactions | Use case diagram, briefs, fully dressed use cases, misuse cases |
+| `04-analysis-model` | Translates requirements into analysis-level behavior and concepts | Domain model, system sequence diagrams, operation contracts |
+| `05-design-model` | Documents object-oriented design and responsibility assignment | Class diagram, communication diagrams, activity diagrams, state machine diagrams, GRASP patterns |
+| `06-architecture` | Describes high-level structure, deployment, and major decisions | Architectural drivers, component diagram, deployment diagram, security view, technology decisions |
+| `07-validation` | Shows how requirements and models are checked | System test scenarios, validation plans, risk analysis, evaluation checklist |
+| `08-final-report` | Collects final evaluation and presentation material | Final architecture summary, demo scenarios, presentation outline |
 
-```
-SmartHome-Guardian/
-├── README.md
-├── docs/
-│   ├── reusable-project-framework.md
-│   ├── smartguardian-system-vision.md
-│   └── smartguardian-architecture-process.md
-├── 01-system-vision/
-├── 02-requirements-engineering/
-├── 03-analysis-model/
-├── 04-system-architecture/
-├── 05-detailed-design/
-├── 06-prototyping-and-experiments/
-├── 07-validation-and-testing/
-└── 08-presentation-and-report/
-```
+## Recommended Reading Order
 
-## Working Method (Recommended)
+1. [PROJECT-OVERVIEW.md](PROJECT-OVERVIEW.md)
+2. [01-vision-and-scope/problem-statement.md](01-vision-and-scope/problem-statement.md)
+3. [02-requirements/functional-requirements.md](02-requirements/functional-requirements.md)
+4. [02-requirements/non-functional-requirements.md](02-requirements/non-functional-requirements.md)
+5. [03-use-case-model/use-case-diagram.md](03-use-case-model/use-case-diagram.md)
+6. [04-analysis-model/domain-model.md](04-analysis-model/domain-model.md)
+7. [04-analysis-model/system-sequence-diagrams.md](04-analysis-model/system-sequence-diagrams.md)
+8. [05-design-model/class-diagram.md](05-design-model/class-diagram.md)
+9. [05-design-model/grasp-patterns.md](05-design-model/grasp-patterns.md)
+10. [06-architecture/component-diagram.md](06-architecture/component-diagram.md)
+11. [02-requirements/requirements-traceability-matrix.md](02-requirements/requirements-traceability-matrix.md)
+12. [08-final-report/final-architecture-summary.md](08-final-report/final-architecture-summary.md)
 
-1. Read `docs/reusable-project-framework.md`.
-2. Complete each phase in order from `01` to `08`.
-3. For each phase, produce required UML + decision artifacts before moving on.
-4. Keep links between requirements, architecture, and validation evidence.
-5. Review each phase against quality gates before marking it complete.
+## Architecture Process
 
-## Quality Gates (Definition of Done)
+The architecture documentation follows this sequence:
 
-- Required UML artifacts are present.
-- Architectural reasoning is documented.
-- Requirements traceability is explicit.
-- Naming remains consistent (`01-`, `02-`, etc.).
-- Repository stays clean and phase-aligned.
+1. Capture architectural drivers from requirements and constraints.
+2. Decompose the system into collaborating subsystems.
+3. Document component, deployment, and security views.
+4. Evaluate technology decisions against quality attributes.
+5. Validate architecture consistency through requirements traceability.
 
-## Quick Start
+## Quality Gates
 
-- Framework: `docs/reusable-project-framework.md`
-- Vision Summary: `docs/smartguardian-system-vision.md`
-- Architecture Process: `docs/smartguardian-architecture-process.md`
+- Required modeling artifacts are present and easy to locate.
+- Requirements connect to use cases, analysis models, design models, and validation scenarios.
+- UML-style diagrams use consistent terminology.
+- Architecture decisions and trade-offs are documented.
+- Placeholder files are avoided unless they identify a required artifact still pending completion.

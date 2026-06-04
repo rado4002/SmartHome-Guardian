@@ -54,55 +54,60 @@ smartguardian/
 │
 ├── README.md
 │
+├── PROJECT-OVERVIEW.md
 ├── docs/
-│   ├── smartguardian-system-vision.md
-│   ├── smartguardian-architecture-process.md
 │   └── reusable-project-framework.md
 │
-├── 01-system-vision/
-│   ├── smartguardian-problem-statement.md
-│   ├── stakeholders-analysis.md
-│   ├── system-scope.md
-│   └── business-goals.md
+├── 01-vision-and-scope/
+│   ├── problem-statement.md
+│   ├── stakeholders.md
+│   ├── business-goals.md
+│   └── context-diagram.md
 │
-├── 02-requirements-engineering/
-│   ├── functional-requirements/
-│   ├── non-functional-requirements/
-│   ├── use-case-model/
-│   └── requirement-validation/
+├── 02-requirements/
+│   ├── functional-requirements.md
+│   ├── non-functional-requirements.md
+│   ├── requirements-validation.md
+│   └── requirements-traceability-matrix.md
 │
-├── 03-analysis-model/
-│   ├── domain-model/
-│   ├── system-sequence-diagrams/
-│   └── operation-contracts/
+├── 03-use-case-model/
+│   ├── use-case-diagram.md
+│   ├── use-case-briefs.md
+│   ├── fully-dressed-use-cases.md
+│   └── misuse-cases.md
 │
-├── 04-system-architecture/
+├── 04-analysis-model/
+│   ├── domain-model.md
+│   ├── system-sequence-diagrams.md
+│   └── operation-contracts.md
+│
+├── 05-design-model/
+│   ├── class-diagram.md
+│   ├── communication-diagrams.md
+│   ├── activity-diagrams.md
+│   ├── state-machine-diagrams.md
+│   └── grasp-patterns.md
+│
+├── 06-architecture/
 │   ├── architectural-drivers.md
-│   ├── subsystem-decomposition.md
-│   ├── architecture-views/
+│   ├── component-diagram.md
+│   ├── deployment-diagram.md
+│   ├── security-view.md
 │   └── technology-decisions.md
 │
-├── 05-detailed-design/
-│   ├── class-diagrams/
-│   ├── interaction-diagrams/
-│   ├── state-machines/
-│   └── design-patterns.md
-│
-├── 06-prototyping-and-experiments/
-│   ├── iot-simulation/
-│   ├── backend-api-tests/
-│   ├── alert-algorithm-tests/
-│   └── performance-evaluation.md
-│
-├── 07-validation-and-testing/
-│   ├── requirement-traceability-matrix.md
+├── 07-validation/
 │   ├── system-test-scenarios.md
-│   └── risk-analysis.md
+│   ├── validation-plans.md
+│   ├── risk-analysis.md
+│   └── evaluation-checklist.md
 │
-└── 08-presentation-and-report/
-    ├── final-architecture-summary.md
-    ├── slides/
-    └── demo-scenarios.md
+├── 08-final-report/
+│   ├── final-architecture-summary.md
+│   ├── demo-scenarios.md
+│   └── presentation-outline.md
+│
+└── assets/
+    └── diagrams/
 ```
 
 Each folder represents a logical engineering maturity stage.

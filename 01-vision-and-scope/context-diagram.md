@@ -1,7 +1,7 @@
 # SmartHome Guardian – System Scope Definition
 # Context Diagram
 
-![SmartGuardian Context Diagram](image/context-diagram.png)
+![SmartGuardian Context Diagram](../assets/diagrams/context-diagram.png)
 
 ```mermaid
 flowchart LR
